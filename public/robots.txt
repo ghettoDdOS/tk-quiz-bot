@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /dj-admin/
+Disallow: /media/
