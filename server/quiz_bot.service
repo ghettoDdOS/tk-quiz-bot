@@ -1,0 +1,10 @@
+[Unit]
+Description=Django-Telegram BOT Polling
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/penkhasoveg/code/quiz/venv/bin/python /home/penkhasoveg/code/quiz/manage.py botpolling --username=tk_quiz_test_bot
+
+[Install]
+WantedBy=multi-user.target

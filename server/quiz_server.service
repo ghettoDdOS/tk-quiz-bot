@@ -1,0 +1,20 @@
+[Unit]
+Description=Django quiz gunicorn daemon
+Requires=quiz_server.socket
+After=network.target
+
+[Service]
+User=webadmin
+Group=www-data
+WorkingDirectory={{ project_path }}
+ExecStart={{ project_path }}/.venv/bin/gunicorn \
+          --access-logfile - \
+          --error-logfile {{ project_path }}/private/logs/gunicorn.log \
+          --capture-output \
+          --enable-stdio-inheritance \
+          --workers 3 \
+          --bind unix:/run/quiz_server.sock \
+          config.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

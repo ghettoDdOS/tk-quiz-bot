@@ -1,0 +1,8 @@
+[Unit]
+Description=Django quiz gunicorn socket
+
+[Socket]
+ListenStream=/run/quiz_server.sock
+
+[Install]
+WantedBy=sockets.target
