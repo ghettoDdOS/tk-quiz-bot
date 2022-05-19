@@ -3,3 +3,4 @@ from .auth import *
 from .internationalization import *
 from .paths import *
 from .static import *
+from .telegram import *

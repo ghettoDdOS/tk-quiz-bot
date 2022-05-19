@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path, re_path
 from django.utils.translation import gettext_lazy as _
 
 admin.site.site_header = _("Панель управления")
@@ -8,6 +8,7 @@ admin.site.index_title = _("Панель управления")
 admin.site.site_title = _("Администрирование")
 
 urlpatterns = [
+    re_path(r"^", include("django_telegrambot.urls")),
     path("admin/", admin.site.urls),
 ]
 
